@@ -1,0 +1,59 @@
+{
+  "name": "ladp-ui",
+  "version": "0.1.0",
+  "proxy": "http://splashstem.org",
+  "homepage": "/",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@arco-design/web-react": "^2.35.1",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^34.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.21.3",
+    "axios": "^0.27.2",
+    "babel-plugin-import": "^1.13.5",
+    "html-to-text": "^8.2.0",
+    "linear-gradient": "^1.0.6",
+    "react": "^18.1.0",
+    "react-amap": "^1.2.8",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^18.1.0",
+    "react-lines-ellipsis": "^0.15.1",
+    "react-load-script": "0.0.6",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "5.0.1",
+    "react-svg-worldmap": "^2.0.0-alpha.1",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
