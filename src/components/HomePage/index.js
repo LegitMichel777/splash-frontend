@@ -1,32 +1,15 @@
 import React, {Component} from "react";
 import common from "../../config/common";
-import {Button, Col, Form, Input, Modal, Row, Table, Tag} from "antd";
-import "./HomePage.scss";
+import {Button, Col, Form, Input, Modal, Tag} from "antd";
+import "./HomePage.css";
+import "./BigSplash.css";
+import "./WorldMap.css";
+import "./Programs.css";
 import WorldMap from "react-svg-worldmap";
 import cookie from 'react-cookies';
 import isLoginOK from '../../config/variable';
 import Footer from "../Footer/Footer";
-import EventCards from "../NewsPage/EventCards";
-
-const columns = [
-    {
-        title: "国家",
-        dataIndex: "country",
-        key: "country",
-    },
-
-    {
-        title: "数量",
-        key: "value",
-        dataIndex: "value",
-        render: (text) => (
-            <Tag color={"blue"} key={text}>
-                {text}
-            </Tag>
-        ),
-    },
-];
-
+import Cards from "../Cards";
 
 export default class HomePage extends Component {
 
@@ -66,48 +49,47 @@ export default class HomePage extends Component {
         if (userInfo || true) {
 
             return (
-                <div>
-                    <div style={{height: 400, background: "#d3dfea", padding: 150,}}>
-                        <p className="text"><h1>Mission Statement</h1>{this.state.config.statement}</p>
+                <div id={"master-container"}>
+                    <div id={"mission-statement-container"}>
+                        <h1 id={"mission-statement-message"}>Helping high School STEM Clubs globally for local charity</h1>
                     </div>
 
-                    {isLoginOK.role === 'admin' &&
-                        <Button onClick={() => this.setState({isShowModel: true})}>编辑</Button>}
-
-                    <div style={{height: 480, paddingTop: 50}}>
-                        <h1>Programs</h1>
-                        <EventCards history={this.props.history}/>
+                    {/*{isLoginOK.role === 'admin' && <Button onClick={() => this.setState({isShowModel: true})}>Edit</Button>}*/}
+                    <div id={"big-splash-container"}>
+                        <h1 id={"big-splash-heading"}>A Big Splash.</h1>
+                        <div className={"splash-stats-container"}>
+                            <div className={"splash-stats"}>
+                                <h1 className={"stat-number"}>23</h1>
+                                <div className={"stat-name"}>High School STEM Clubs</div>
+                            </div>
+                            <div className={"splash-stats center-splash-stat"}>
+                                <h1 className={"stat-number"}>562</h1>
+                                <div className={"stat-name"}>Children serviced</div>
+                            </div>
+                            <div className={"splash-stats"}>
+                                <h1 className={"stat-number"}>31</h1>
+                                <div className={"stat-name"}>Hours of courses</div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div style={{height: 200, padding: 50}}>
-                        <h1>Members</h1>
-                        <p className="text">
-                            {this.state.config.members}
-                        </p>
+                    <div id={"worldmap-main-container"}>
+                        <h1>SPLASH Members Globally</h1>
+                        <WorldMap
+                            color="#C5DAFA"
+                            backgroundColor={"#040E1D"}
+                            borderColor={"#395072"}
+                            tooltipBgColor="black"
+                            valuePrefix=":"
+                            size="xxl"
+                            data={data}
+                            id={"worldmap"}
+                        />
                     </div>
-                    <div style={{padding: 50}}>
-                        {/* <h1>Word Map</h1> */}
-                        <Row justify={"space-between"}>
-                            <Col span={18}>
-                                <WorldMap
-                                    color="yellow"
-                                    tooltipBgColor="black"
-                                    // title="世界各国注册人数展示"
-                                    valuePrefix=":"
-                                    size="xxl"
-                                    data={data}
-                                    frame
-                                />
-                            </Col>
-                            <Col span={5}>
-                                <Table
-                                    columns={columns}
-                                    dataSource={data}
-                                    bordered={true}
-                                >
-                                </Table>
-                            </Col>
-                        </Row>
+                    <div id={"programs-container"}>
+                        <h1>Explore Programs</h1>
+                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
                     </div>
 
                     <div style={{height: 300, padding: 50, background: "#d3dfea"}}>

@@ -1,0 +1,25 @@
+.card-master-container {
+    width: 339px;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.card-image-container {
+    height: 201px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: #1C2C44;
+}
+.card-header {
+    font-weight: bold;
+    margin: 0 16px 5px;
+}
+.card-description {
+    margin: 0 16px 16px 16px;
+}

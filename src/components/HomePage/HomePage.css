@@ -1,0 +1,20 @@
+#master-container {
+    display: flex;
+    flex-direction: column;
+}
+#mission-statement-container {
+    background-image: url("/public/images/main-page-background.jpg");
+    height: 749px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#mission-statement-message {
+    width: 918px;
+    color: white;
+}

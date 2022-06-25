@@ -1,0 +1,15 @@
+#worldmap-main-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #040E1D;
+}
+#worldmap-main-container h1 {
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    color: white;
+}

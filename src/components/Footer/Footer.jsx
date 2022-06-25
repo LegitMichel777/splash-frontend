@@ -1,13 +1,3 @@
-/*
- * @Author: zhouHui
- * @Date: 2022-06-21 11:37:24
- * @LastEditors: zhouHui
- * @LastEditTime: 2022-06-21 11:39:52
- * @Description: 
- * 
- * Copyright (c) 2022 by zhouHui, All Rights Reserved. 
- */
-
 import React, { } from "react";
 
 const Footer = ({ styles }) => {
@@ -22,12 +12,6 @@ const Footer = ({ styles }) => {
         position: 'absolute',
         textAlign: 'center',
     }
-    // if (styles) {
-    //     dstyles = {
-    //         ...dstyles,
-    //         ...styles
-    //     }
-    // }
     return (
         <div className="footer" style={dstyles}>
             <p>Contact Us:<a href="mailto:team@splashstem.org">team@splashstem.org</a></p>
