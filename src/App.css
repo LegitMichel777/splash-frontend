@@ -1,0 +1,65 @@
+.main-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 53px;
+}
+.header-container {
+	display: flex;
+	flex-direction: row;
+	width: 1140px;
+	margin: 0 16px;
+	max-width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+#header {
+	background-color: red;
+}
+.main-nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.main-nav a {
+	color: #7C7C7C;
+	margin-right: 36px;
+	font-weight: 500;
+	text-decoration: none;
+}
+.main-nav a:hover {
+	color: black;
+}
+.nav-selected {
+	color: black;
+}
+.user-nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.header-separator {
+	background-color: #4E4E4E;
+	height: 0.5px;
+	width: 100%;
+}
+.splash-logo {
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+	color: black;
+}
+.splash-logo img {
+	margin-right: 5px;
+}
+.nickname-text {
+	font-weight: 400;
+}
+.user-login {
+	margin-right: 24px;
+}
+.header-sign-clickable {
+	color: #007AFF;
+	font-weight: 500;
+	cursor: pointer;
+}

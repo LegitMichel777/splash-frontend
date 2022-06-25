@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
-import styles from "./App.module.scss";
+import "./App.css";
 import {Link, Route, withRouter} from "react-router-dom";
 import HomePage from "./components/HomePage";
 import NewsPage from "./components/NewsPage";
 import TeamPage from "./components/TeamPage";
 import BlogPage from "./components/BlogPage";
 import ResourcePage from "./components/ResourcePage";
-import "antd/dist/antd.css";
-import {Button, Form, Input, message, Modal, Select} from "antd";
+import {Button, Form, Input, Modal, Select} from "antd";
 import common from "./config/common";
 import isLoginOK from './config/variable';
 import cookie from 'react-cookies';
@@ -1369,7 +1368,6 @@ const App = (props) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isLogin, setIsLogin] = useState(true);
     const [type, setType] = useState(null);
-    // console.log('type>>',type)
     useEffect(() => {
         const ck = cookie.loadAll()
         global.Nickname = ck.nickname
@@ -1462,57 +1460,43 @@ const App = (props) => {
         setIsModalVisible(false);
     }
     return (
-        <div className={styles.App}>
-            <header className={styles.header}>
-                <div className={styles.box}>
-                    <Link to="/">
-                        <div className={styles.boxleft}><img style={{width: 60}}
-                                                             src="/images/1vsDDe1INB12X7x2xYye1w.png"></img></div>
-                    </Link>
-                    <div className={styles.boxright}>
+        <div className="master-container">
+            <header className="main-header">
+                <div className="header-container">
+                    <div className="main-nav">
+                        <Link to="/" >
+                            <div className={"splash-logo"}>
+                                <img style={{width: 35, height: 35}} src="/images/logo.png"></img>
+                                <p>SPLASH</p>
+                            </div>
+                        </Link>
                         <Link to="/">
-                            <p className={location.pathname === "/" ? styles.selected : null}>
+                            <p className={location.pathname === "/" ? "nav-selected" : null}>
                                 Home
                             </p>
                         </Link>
                         <Link to="/resource">
-                            <p
-                                className={
-                                    location.pathname === "/resource" ? styles.selected : null
-                                }
-                            >
+                            <p className={location.pathname === "/resource" ? "nav-selected" : null}>
                                 About Us
                             </p>
                         </Link>
                         <Link to="/team">
-                            <p
-                                className={
-                                    location.pathname === "/team" ? styles.selected : null
-                                }
-                            >
+                            <p className={location.pathname === "/team" ? "nav-selected" : null}>
                                 Resources
                             </p>
                         </Link>
                         <Link to="/blog">
-                            <p
-                                className={
-                                    location.pathname === "/blog" ? styles.selected : null
-                                }
-                            >
+                            <p className={location.pathname === "/blog" ? "nav-selected" : null}>
                                 Blog
                             </p>
                         </Link>
                         <Link to="/news">
-                            <p
-                                className={
-                                    location.pathname === "/news" ? styles.selected : null
-                                }
-                            >
+                            <p className={location.pathname === "/news" ? "nav-selected" : null}>
                                 Programs & Events
                             </p>
                         </Link>
                     </div>
-                    <div className={styles.login}>
+                    <div className="user-nav">
                         <p
                             onClick={() => {
                                 if (isLoginOK.a == 1) {
@@ -1523,11 +1507,10 @@ const App = (props) => {
                                     showModal();
                                 }
                             }}
-
+                            className={"user-login "+(isLoginOK.a ? "nickname-text" : "header-sign-clickable")}
                         >
-                            {isLoginOK.a ? "欢迎你, " + global.Nickname : "登录"}
+                            {isLoginOK.a ? global.Nickname : "Login"}
                         </p>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <p
                             onClick={() => {
                                 if (isLoginOK.a == 1) {
@@ -1551,13 +1534,15 @@ const App = (props) => {
                                     showModal();
                                 }
                             }}
+                            className={"header-sign-clickable"}
                         >
-                            {isLoginOK.a ? "退出" : "注册"}
+                            {isLoginOK.a ? "Sign out" : "Sign up"}
                         </p>
                     </div>
                 </div>
             </header>
-            <section className={styles.content} style={{height: "100%"}}>
+            <div className={"header-separator"}></div>
+            <section style={{height: "100%"}}>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/news" exact component={NewsPage}/>
                 <Route path="/blog" exact component={BlogPage}/>

@@ -9,12 +9,6 @@ import Footer from "../Footer/Footer";
 import EventCards from "../NewsPage/EventCards";
 
 const columns = [
-    // {
-    //   title: "id",
-    //   dataIndex: "key",
-    //   key: "key",
-    //   render: (text) => <a>{text}</a>,
-    // },
     {
         title: "国家",
         dataIndex: "country",
