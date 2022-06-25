@@ -52,7 +52,7 @@ export default class HomePage extends Component {
         return (
             <div id={"master-container"}>
                 <div id={"mission-statement-container"}>
-                    <h1 id={"mission-statement-message"}>Helping high School STEM Clubs globally for local charity</h1>
+                    <h1 id={"mission-statement-message"}>Helping High School STEM Clubs globally for local charity</h1>
                 </div>
 
                 <div id={"big-splash-container"}>
