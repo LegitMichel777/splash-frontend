@@ -87,9 +87,11 @@ export default class HomePage extends Component {
                     </div>
                     <div id={"programs-container"}>
                         <h1>Explore Programs</h1>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                        <div id={"programs-preview"}>
+                            <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairsdfsafdsfasfdasfs"}/>
+                            <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                            <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"} description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                        </div>
                     </div>
 
                     <div style={{height: 300, padding: 50, background: "#d3dfea"}}>
