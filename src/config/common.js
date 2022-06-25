@@ -6,9 +6,9 @@ import {notification} from "antd";
 class CommonConfig {
 
     /***开发***/
-    // serverIP = 'http://localhost:8989'
+    serverIP = 'http://localhost:8989'
     // serverIP = 'http://splashstem.org'
-    serverIP = ''
+    // serverIP = ''
 
     /**
      * 对接后端接口get方法（无返回值）
