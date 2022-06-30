@@ -8,7 +8,7 @@ export default function AdvisorMemberElement(props) {
     let data: MemberData = props.data;
     return (
         <div className={"about-advisor-element"}>
-            <img src={"/images/about-us/"+data.id+".jpg"} className={"about-advisor-image"} />
+            <img src={require("/public/images/about-us/"+data.id+".jpg")} className={"about-advisor-image"} />
             <div className={"about-advisor-data"}>
                 <div className={"about-advisor-name"}>{data.name}</div>
                 <div className={"about-advisor-title"}>{data.title}</div>

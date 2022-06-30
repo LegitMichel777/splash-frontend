@@ -6,7 +6,7 @@ const Footer = ({ styles }) => {
         <div id="footer-container">
             <div id={"footer-inner-container"}>
                 <div id={"upper-footer"}>
-                    <div id={"footer-inquiries"}>Any inquiries? Contact us at splashemail@splash.org</div>
+                    <div id={"footer-inquiries"}>Any inquiries? Contact us at team@splashstem.org</div>
                     <div id={"footer-social-media"}>
                         <a href={"https://www.youtube.com"} className={"footer-social-media-item"}>
                             <img src={"/images/icons/social-media/youtube-icon.png"} style={{width: 40, height: 28}}/>

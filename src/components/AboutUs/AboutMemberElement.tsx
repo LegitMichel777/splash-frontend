@@ -8,7 +8,7 @@ export default function AboutMemberElement(props) {
     let data: MemberData = props.data;
     return (
         <div className={"about-member-element"}>
-            <img src={"/images/about-us/"+data.id+".jpg"} className={"about-member-image"} />
+            <img src={require("/public/images/about-us/"+data.id+".jpg")} className={"about-member-image"} />
             <div className={"about-member-name"}>{data.name}</div>
             <div className={"about-member-title"}>{data.title}</div>
             <div className={"about-member-description"}>{data.description}</div>

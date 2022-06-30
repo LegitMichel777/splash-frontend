@@ -110,11 +110,6 @@ const App = (props) => {
                                 Resources
                             </p>
                         </Link>
-                        <Link to="/blog">
-                            <p className={location.pathname === "/blog" ? "nav-selected" : null}>
-                                Blog
-                            </p>
-                        </Link>
                         <Link to="/programs">
                             <p className={location.pathname === "/programs" ? "nav-selected" : null}>
                                 Programs & Events

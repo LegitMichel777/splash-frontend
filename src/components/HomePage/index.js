@@ -58,11 +58,11 @@ export default class HomePage extends Component {
                     <h1 id={"big-splash-heading"}>A Big Splash.</h1>
                     <div className={"splash-stats-container"}>
                         <div className={"splash-stats"}>
-                            <h1 className={"stat-number"}>23</h1>
+                            <h1 className={"stat-number"}>2</h1>
                             <div className={"stat-name"}>High School STEM Clubs</div>
                         </div>
                         <div className={"splash-stats center-splash-stat"}>
-                            <h1 className={"stat-number"}>562</h1>
+                            <h1 className={"stat-number"}>50</h1>
                             <div className={"stat-name"}>Children serviced</div>
                         </div>
                         <div className={"splash-stats"}>
@@ -87,12 +87,12 @@ export default class HomePage extends Component {
                 <div id={"programs-container"}>
                     <h1>Explore Programs</h1>
                     <div id={"programs-preview"}>
+                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"STEM Clubs for local charities"}
+                               description={"We empower STEM clubs and students to educate underprivileged members of their communities and ignite a passion for STEM by providing STEM camps and activities resources."}/>
+                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Seminars & Workshops"}
+                               description={"In our seminars and workshops, SPLASH members, professionals in STEM fields, and experienced philanthropists share their valuable experiences in leadership, charity, or curriculum design."}/>
                         <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"}
-                               description={"blahblah little desc about club fairsblahblah little desc about club fairsdfsafdsfasfdasfs"}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"}
-                               description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"}
-                               description={"blahblah little desc about club fairsblahblah little desc about club fairs"}/>
+                               description={"SPLASH holds club fairs where students can network with their peers and meet similarly passionate people about STEM and STEM education."}/>
                     </div>
                 </div>
 
