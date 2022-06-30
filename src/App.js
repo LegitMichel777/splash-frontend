@@ -8,6 +8,7 @@ import isLoginOK from './config/variable';
 import cookie from 'react-cookies';
 import {cyList} from "./data/CountryData";
 import Footer from "./components/Footer/Footer";
+import Programs from "./components/Programs";
 
 const layout = {
     labelCol: {span: 10},
@@ -165,6 +166,7 @@ const App = (props) => {
             <section style={{height: "100%"}}>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/team" exact component={AboutUs}/>
+                <Route path="/programs" exact component={Programs}/>
             </section>
             <Footer/>
             {/*<div><Modal*/}
