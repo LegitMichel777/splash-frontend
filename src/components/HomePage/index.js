@@ -87,11 +87,11 @@ export default class HomePage extends Component {
                 <div id={"programs-container"}>
                     <h1>Explore Programs</h1>
                     <div id={"programs-preview"}>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"STEM Clubs for local charities"}
+                        <Cards imageUrl={"/images/program-local_charity.jpg"} title={"STEM Clubs for local charities"}
                                description={"We empower STEM clubs and students to educate underprivileged members of their communities and ignite a passion for STEM by providing STEM camps and activities resources."}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Seminars & Workshops"}
+                        <Cards imageUrl={"/images/program-seminar.jpg"} title={"Seminars & Workshops"}
                                description={"In our seminars and workshops, SPLASH members, professionals in STEM fields, and experienced philanthropists share their valuable experiences in leadership, charity, or curriculum design."}/>
-                        <Cards imageUrl={"/images/program-placeholder.jpg"} title={"Club Fairs"}
+                        <Cards imageUrl={"/images/program-club_fair.jpg"} title={"Club Fairs"}
                                description={"SPLASH holds club fairs where students can network with their peers and meet similarly passionate people about STEM and STEM education."}/>
                     </div>
                 </div>
@@ -100,9 +100,8 @@ export default class HomePage extends Component {
                     <div id={"resources-description"}>
                         <div id={"resources-description-inner-container"}>
                             <h1>Resources</h1>
-                            <div id={"resources-description"}>yadayadayada, talk about our resources and stuff.
-                                yadayadayada, talk about our resources and stuff. yadayadayada, talk about our our our
-                                our our our our resources and stuff.
+                            <div id={"resources-description"}>
+                                Through our resources, we empower STEM clubs and students to educate underprivileged members of their communities and ignite a passion for STEM. Our resources include STEM camps, activities, and learning resources that enable other students to learn and teach STEM.
                             </div>
                             <div id={"resources-view-more"}>
                                 See our resources
