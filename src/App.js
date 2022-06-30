@@ -9,6 +9,7 @@ import cookie from 'react-cookies';
 import {cyList} from "./data/CountryData";
 import Footer from "./components/Footer/Footer";
 import Programs from "./components/Programs";
+import Resources from "./components/Resources";
 
 const layout = {
     labelCol: {span: 10},
@@ -167,6 +168,7 @@ const App = (props) => {
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/team" exact component={AboutUs}/>
                 <Route path="/programs" exact component={Programs}/>
+                <Route path="/resources" exact component={Resources}/>
             </section>
             <Footer/>
             {/*<div><Modal*/}
