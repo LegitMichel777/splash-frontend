@@ -2,15 +2,12 @@ import React, {useEffect, useState} from "react";
 import "./App.css";
 import {Link, Route, withRouter} from "react-router-dom";
 import HomePage from "./components/HomePage";
-import TeamPage from "./components/TeamPage";
-import BlogPage from "./components/BlogPage";
-import ResourcePage from "./components/ResourcePage";
-import {Button, Form, Input, Modal, Select} from "antd";
+import AboutUs from "./components/AboutUs/index.tsx";
 import common from "./config/common";
 import isLoginOK from './config/variable';
 import cookie from 'react-cookies';
-import {notification} from "antd";
 import {cyList} from "./data/CountryData";
+import Footer from "./components/Footer/Footer";
 
 const layout = {
     labelCol: {span: 10},
@@ -48,9 +45,6 @@ const App = (props) => {
                 console.log("登录接口返回值：", resp)
                 // resp.ret==0?message.success(resp.desc) : message.error(resp.desc);
                 if (resp.ret === 0) {
-                    notification['success']({
-                        message: resp.desc,
-                    });
                     global.Nickname = resp.nickname
                     isLoginOK.a = 1
                     isLoginOK.account = formData.account
@@ -68,25 +62,23 @@ const App = (props) => {
                     }, 300);
 
                 } else {
-                    notification['error']({
-                        message: resp.message || "login failed"
-                    });
+
                 }
             })
         } else {
             common.postMethodRes("/api/user/register", formData).then(resp => {
                 console.log("注册接口返回值：", resp)
                 if (resp.ret === 0) {
-                    notification['success']({
-                        message: resp.desc
-                    });
+                    // notification['success']({
+                    //     message: resp.desc
+                    // });
                     setTimeout(() => {
                         window.location.reload();  // 强制刷新
                     }, 500);
                 } else {
-                    notification['error']({
-                        message: resp.desc
-                    });
+                    // notification['error']({
+                    //     message: resp.desc
+                    // });
                 }
             })
         }
@@ -108,13 +100,13 @@ const App = (props) => {
                                 Home
                             </p>
                         </Link>
-                        <Link to="/resource">
-                            <p className={location.pathname === "/resource" ? "nav-selected" : null}>
+                        <Link to="/team">
+                            <p className={location.pathname === "/team" ? "nav-selected" : null}>
                                 About Us
                             </p>
                         </Link>
-                        <Link to="/team">
-                            <p className={location.pathname === "/team" ? "nav-selected" : null}>
+                        <Link to="/resources">
+                            <p className={location.pathname === "/resources" ? "nav-selected" : null}>
                                 Resources
                             </p>
                         </Link>
@@ -123,8 +115,8 @@ const App = (props) => {
                                 Blog
                             </p>
                         </Link>
-                        <Link to="/news">
-                            <p className={location.pathname === "/news" ? "nav-selected" : null}>
+                        <Link to="/programs">
+                            <p className={location.pathname === "/programs" ? "nav-selected" : null}>
                                 Programs & Events
                             </p>
                         </Link>
@@ -148,9 +140,9 @@ const App = (props) => {
                             onClick={() => {
                                 if (isLoginOK.a == 1) {
                                     common.postMethodRes("/api/user/logout").then(resp => {
-                                        notification['success']({
-                                            message: '退出成功'
-                                        });
+                                        // notification['success']({
+                                            // message: '退出成功'
+                                        // });
                                         isLoginOK.a = 0
                                         cookie.remove('isLoginOK', {path: '/'})
                                         cookie.remove('account', {path: '/'})
@@ -177,237 +169,233 @@ const App = (props) => {
             <div className={"header-separator"}></div>
             <section style={{height: "100%"}}>
                 <Route path="/" exact component={HomePage}/>
-                <Route path="/blog" exact component={BlogPage}/>
-                <Route path="/team" exact
-                       component={() => <TeamPage showModal={showModal} setIsLogin={setIsLogin}></TeamPage>}/>
-                <Route path="/resource" exact
-                       render={() => <ResourcePage showModal={showModal} setIsLogin={setIsLogin}></ResourcePage>}/>
-                <Route path="/resource1" exact component={ResourcePage}/>
+                <Route path="/team" exact component={AboutUs}/>
             </section>
-            <div><Modal
-                title={isLogin ? "登录" : "注册"}
-                visible={isModalVisible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                footer={null}
-                // bodyStyle={{backgroundColor: "#E0DECA", fontWeight: "bolder"}}
-                getContainer={false}
-            >
-                <Form
-                    name="basic"
-                    initialValues={{remember: true}}
-                    labelWrap
-                    onFinish={onFinish}
-                    autoComplete="off"
-                    labelAlign="left"
-                    {...layout}
-                >
+            <Footer/>
+            {/*<div><Modal*/}
+            {/*    title={isLogin ? "登录" : "注册"}*/}
+            {/*    visible={isModalVisible}*/}
+            {/*    onOk={handleOk}*/}
+            {/*    onCancel={handleCancel}*/}
+            {/*    footer={null}*/}
+            {/*    // bodyStyle={{backgroundColor: "#E0DECA", fontWeight: "bolder"}}*/}
+            {/*    getContainer={false}*/}
+            {/*>*/}
+            {/*    <Form*/}
+            {/*        name="basic"*/}
+            {/*        initialValues={{remember: true}}*/}
+            {/*        labelWrap*/}
+            {/*        onFinish={onFinish}*/}
+            {/*        autoComplete="off"*/}
+            {/*        labelAlign="left"*/}
+            {/*        {...layout}*/}
+            {/*    >*/}
 
-                    {!isLogin && (<Form.Item
-                        label="Register as Individual User or as Club"
-                        name="role"
-                        rules={[{required: true, message: "Please input your type!"}]}
-                        // style={{backgroundColor: "#E0DECA"}}
-                        initialvalues="Individual User"
-                    >
-                        <Select onChange={setType}>
-                            <Select.Option value="single">Individual User</Select.Option>
-                            <Select.Option value="club">club</Select.Option>
+            {/*        {!isLogin && (<Form.Item*/}
+            {/*            label="Register as Individual User or as Club"*/}
+            {/*            name="role"*/}
+            {/*            rules={[{required: true, message: "Please input your type!"}]}*/}
+            {/*            // style={{backgroundColor: "#E0DECA"}}*/}
+            {/*            initialvalues="Individual User"*/}
+            {/*        >*/}
+            {/*            <Select onChange={setType}>*/}
+            {/*                <Select.Option value="single">Individual User</Select.Option>*/}
+            {/*                <Select.Option value="club">club</Select.Option>*/}
 
-                        </Select>
-                    </Form.Item>)}
+            {/*            </Select>*/}
+            {/*        </Form.Item>)}*/}
 
-                    {!isLogin && type && (
-                        <>
+            {/*        {!isLogin && type && (*/}
+            {/*            <>*/}
 
-                            {/* <Form.Item
-                                label="nickname"
-                                name="nickname"
-                                rules={[{ required: true, message: "Please input your nickname!" }]}
-                            >
-                                <Input />
-                            </Form.Item> */}
+            {/*                /!* <Form.Item*/}
+            {/*                    label="nickname"*/}
+            {/*                    name="nickname"*/}
+            {/*                    rules={[{ required: true, message: "Please input your nickname!" }]}*/}
+            {/*                >*/}
+            {/*                    <Input />*/}
+            {/*                </Form.Item> *!/*/}
 
-                            {type === 'single' && <>
-                                <Form.Item
-                                    label="First Name"
-                                    name="firstName"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Last Name"
-                                    name="lastName"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Email"
-                                    name="email"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Country"
-                                    name="country"
-                                    rules={[
-                                        {required: true, message: "Please input your password!"},
-                                    ]}
-                                >
-                                    <Select initialvalues="0" showSearch optionFilterProp="label"
-                                            data>
-                                        {cyList.filter((i) => i.ab).map((i) => {
-                                            return <Select.Option value={i.ab.toLocaleLowerCase()}
-                                                                  label={i.country_name_en}>{i.country_name_en}</Select.Option>
-                                        })}
-                                    </Select>
-                                </Form.Item>
-                                <Form.Item
-                                    label="City"
-                                    name="city"
-                                    rules={[{required: true, message: "Please input your city!"}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                            </>}
-                            {type === 'club' && <>
-                                {/* <h3>Contact</h3> */}
+            {/*                {type === 'single' && <>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="First Name"*/}
+            {/*                        name="firstName"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="Last Name"*/}
+            {/*                        name="lastName"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="Email"*/}
+            {/*                        name="email"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="Country"*/}
+            {/*                        name="country"*/}
+            {/*                        rules={[*/}
+            {/*                            {required: true, message: "Please input your password!"},*/}
+            {/*                        ]}*/}
+            {/*                    >*/}
+            {/*                        <Select initialvalues="0" showSearch optionFilterProp="label"*/}
+            {/*                                data>*/}
+            {/*                            {cyList.filter((i) => i.ab).map((i) => {*/}
+            {/*                                return <Select.Option value={i.ab.toLocaleLowerCase()}*/}
+            {/*                                                      label={i.country_name_en}>{i.country_name_en}</Select.Option>*/}
+            {/*                            })}*/}
+            {/*                        </Select>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="City"*/}
+            {/*                        name="city"*/}
+            {/*                        rules={[{required: true, message: "Please input your city!"}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                </>}*/}
+            {/*                {type === 'club' && <>*/}
+            {/*                    /!* <h3>Contact</h3> *!/*/}
 
-                                <Form.Item
-                                    label="Club Leader’s name"
-                                    name="leader"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Club Leader’s email"
-                                    name="leaderEmail"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                {/* <h3>Club information</h3> */}
-                                <Form.Item
-                                    label="School"
-                                    name="school"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Country"
+            {/*                    <Form.Item*/}
+            {/*                        label="Club Leader’s name"*/}
+            {/*                        name="leader"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="Club Leader’s email"*/}
+            {/*                        name="leaderEmail"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    /!* <h3>Club information</h3> *!/*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="School"*/}
+            {/*                        name="school"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="Country"*/}
 
-                                    name="country"
-                                    rules={[
-                                        {required: true, message: "Please input your password!"},
-                                    ]}
-                                >
-                                    <Select
-                                        initialvalues="0"
-                                        // style={{width: 120}}
-                                        showSearch
-                                        optionFilterProp="label"
-                                    >
-                                        {cyList.filter((i) => i.ab).map((i) => {
-                                            return <Select.Option value={i.ab.toLocaleLowerCase()}
-                                                                  label={i.country_name_en}>{i.country_name_en}</Select.Option>
-                                        })}
+            {/*                        name="country"*/}
+            {/*                        rules={[*/}
+            {/*                            {required: true, message: "Please input your password!"},*/}
+            {/*                        ]}*/}
+            {/*                    >*/}
+            {/*                        <Select*/}
+            {/*                            initialvalues="0"*/}
+            {/*                            // style={{width: 120}}*/}
+            {/*                            showSearch*/}
+            {/*                            optionFilterProp="label"*/}
+            {/*                        >*/}
+            {/*                            {cyList.filter((i) => i.ab).map((i) => {*/}
+            {/*                                return <Select.Option value={i.ab.toLocaleLowerCase()}*/}
+            {/*                                                      label={i.country_name_en}>{i.country_name_en}</Select.Option>*/}
+            {/*                            })}*/}
 
-                                    </Select>
-                                </Form.Item>
-                                <Form.Item
-                                    label="City"
-                                    name="city"
-                                    rules={[{required: true, message: "Please input your city!"}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="More about"
-                                    name="moreAbout"
-                                    rules={[{required: true}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
+            {/*                        </Select>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="City"*/}
+            {/*                        name="city"*/}
+            {/*                        rules={[{required: true, message: "Please input your city!"}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
+            {/*                    <Form.Item*/}
+            {/*                        label="More about"*/}
+            {/*                        name="moreAbout"*/}
+            {/*                        rules={[{required: true}]}*/}
+            {/*                    >*/}
+            {/*                        <Input/>*/}
+            {/*                    </Form.Item>*/}
 
-                            </>}
-                            <Form.Item
-                                label="Username"
-                                name="account"
-                                rules={[{required: true, message: "Please input your username!"}, {
-                                    max: 30,
-                                    message: "Up to 30 characters!"
-                                }]}
-                                // style={{backgroundColor: "#E0DECA"}}
-                            >
-                                <Input/>
-                            </Form.Item>
+            {/*                </>}*/}
+            {/*                <Form.Item*/}
+            {/*                    label="Username"*/}
+            {/*                    name="account"*/}
+            {/*                    rules={[{required: true, message: "Please input your username!"}, {*/}
+            {/*                        max: 30,*/}
+            {/*                        message: "Up to 30 characters!"*/}
+            {/*                    }]}*/}
+            {/*                    // style={{backgroundColor: "#E0DECA"}}*/}
+            {/*                >*/}
+            {/*                    <Input/>*/}
+            {/*                </Form.Item>*/}
 
-                            <Form.Item
-                                label="Password"
-                                name="password"
-                                rules={[{required: true, message: "Please input your password!"},
-                                    {
-                                        pattern: new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/),
-                                        message: "At least 8 digits, upper and lower case and numbers!"
-                                    }]}
-                                // style={{backgroundColor: "#E0DECA"}}
-                            >
-                                <Input.Password/>
-                            </Form.Item>
+            {/*                <Form.Item*/}
+            {/*                    label="Password"*/}
+            {/*                    name="password"*/}
+            {/*                    rules={[{required: true, message: "Please input your password!"},*/}
+            {/*                        {*/}
+            {/*                            pattern: new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/),*/}
+            {/*                            message: "At least 8 digits, upper and lower case and numbers!"*/}
+            {/*                        }]}*/}
+            {/*                    // style={{backgroundColor: "#E0DECA"}}*/}
+            {/*                >*/}
+            {/*                    <Input.Password/>*/}
+            {/*                </Form.Item>*/}
 
-                        </>
-                    )}
+            {/*            </>*/}
+            {/*        )}*/}
 
 
-                    {isLogin && (
-                        <>
-                            <Form.Item
-                                label="username"
-                                name="account"
-                                rules={[{required: true, message: "Please input your username!"}, {
-                                    max: 30,
-                                    message: "Up to 30 characters!"
-                                }]}
-                                // style={{backgroundColor: "#E0DECA"}}
-                            >
-                                <Input/>
-                            </Form.Item>
+            {/*        {isLogin && (*/}
+            {/*            <>*/}
+            {/*                <Form.Item*/}
+            {/*                    label="username"*/}
+            {/*                    name="account"*/}
+            {/*                    rules={[{required: true, message: "Please input your username!"}, {*/}
+            {/*                        max: 30,*/}
+            {/*                        message: "Up to 30 characters!"*/}
+            {/*                    }]}*/}
+            {/*                    // style={{backgroundColor: "#E0DECA"}}*/}
+            {/*                >*/}
+            {/*                    <Input/>*/}
+            {/*                </Form.Item>*/}
 
-                            <Form.Item
-                                label="password"
-                                name="password"
-                                rules={[{required: true, message: "Please input your password!"},
-                                ]}
-                                // style={{backgroundColor: "#E0DECA"}}
-                            >
-                                <Input.Password/>
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit"
-                                        style={{marginRight: "25px", marginLeft: "200px"}}
-                                >
-                                    登录
-                                </Button>
-                            </Form.Item>
-                        </>
-                    )}
+            {/*                <Form.Item*/}
+            {/*                    label="password"*/}
+            {/*                    name="password"*/}
+            {/*                    rules={[{required: true, message: "Please input your password!"},*/}
+            {/*                    ]}*/}
+            {/*                    // style={{backgroundColor: "#E0DECA"}}*/}
+            {/*                >*/}
+            {/*                    <Input.Password/>*/}
+            {/*                </Form.Item>*/}
+            {/*                <Form.Item>*/}
+            {/*                    <Button type="primary" htmlType="submit"*/}
+            {/*                            style={{marginRight: "25px", marginLeft: "200px"}}*/}
+            {/*                    >*/}
+            {/*                        登录*/}
+            {/*                    </Button>*/}
+            {/*                </Form.Item>*/}
+            {/*            </>*/}
+            {/*        )}*/}
 
-                    {!isLogin && (
-                        <Form.Item>
-                            <Button type="primary" htmlType="submit"
-                                    style={{marginRight: "25px", marginLeft: "200px"}}>
-                                注册
-                            </Button>
-                        </Form.Item>
-                    )}
-                </Form>
-            </Modal>
-            </div>
+            {/*        {!isLogin && (*/}
+            {/*            <Form.Item>*/}
+            {/*                <Button type="primary" htmlType="submit"*/}
+            {/*                        style={{marginRight: "25px", marginLeft: "200px"}}>*/}
+            {/*                    注册*/}
+            {/*                </Button>*/}
+            {/*            </Form.Item>*/}
+            {/*        )}*/}
+            {/*    </Form>*/}
+            {/*</Modal>*/}
+            {/*</div>*/}
         </div>
     );
 };

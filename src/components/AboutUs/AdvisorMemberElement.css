@@ -1,0 +1,31 @@
+.about-advisor-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    color: #1C2C44;
+}
+.about-advisor-image {
+    width: 145px;
+    height: 145px;
+    margin-right: 24px;
+}
+.about-advisor-name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+}
+.about-advisor-title {
+    font-weight: bold;
+    font-size: 17px;
+    font-style: italic;
+    margin-bottom: 7px;
+    line-height: 20px;
+    text-align: left;
+}
+.about-advisor-description {
+    font-size: 17px;
+    text-align: left;
+    line-height: 20px;
+    white-space: pre-wrap;
+}

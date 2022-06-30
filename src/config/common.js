@@ -1,6 +1,4 @@
 import axios from "./request"
-import { message } from "antd";
-import {notification} from "antd";
 
 
 class CommonConfig {
@@ -23,9 +21,9 @@ class CommonConfig {
                 //     window.location.reload();//强制刷新
                 // }, 100);
             } else {
-                notification['error']({
-                    message: response.data.respMsg
-                });
+                // notification['error']({
+                //     message: response.data.respMsg
+                // });
             }
         }).catch(function (error) {
             console.log(error)
@@ -67,14 +65,14 @@ class CommonConfig {
     postMethod = (api, data) => {
         return axios.post(this.serverIP + api, data).then((response) => {
             if (response.data.respCode === "1") {
-                response.data.respMsg && message.success(response.data.respMsg)
+                // response.data.respMsg /*&& message.success(response.data.respMsg)*/
                 // setTimeout(() => {
                 //     window.location.reload();//强制刷新
                 // }, 100);
                 return Promise.resolve(response.data)
 
             } else {
-                message.error(response.data.respMsg)
+                // message.error(response.data.respMsg)
             }
 
         }).catch(function (error) {
@@ -93,7 +91,7 @@ class CommonConfig {
             if (response.status === 200) {
                 return response.data
             } else {
-                message.error("错误")
+                // message.error("错误")
             }
         }).catch(function (error) {
             console.log(error)

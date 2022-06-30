@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import common from "../../config/common";
-import {Button, Col, Form, Input, Modal, Tag} from "antd";
 import "./HomePage.css";
 import "./BigSplash.css";
 import "./WorldMap.css";
@@ -50,7 +49,7 @@ export default class HomePage extends Component {
         console.log(userInfo)
 
         return (
-            <div id={"master-container"}>
+            <div id={"home-page-container"}>
                 <div id={"mission-statement-container"}>
                     <h1 id={"mission-statement-message"}>Helping High School STEM Clubs globally for local charity</h1>
                 </div>
@@ -123,7 +122,6 @@ export default class HomePage extends Component {
                         <img style={{width: 227, height: 196}} src={"/images/sponsor-jiu-qian-logo.jpg"}/>
                     </div>
                 </div>
-                <Footer/>
             </div>
         );
     }

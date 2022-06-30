@@ -1,0 +1,30 @@
+.about-member-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1C2C44;
+}
+.about-member-image {
+    width: 169px;
+    height: 169px;
+    margin-bottom: 10px;
+}
+.about-member-name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+ }
+.about-member-title {
+    font-weight: bold;
+    font-size: 17px;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 20px;
+    text-align: center;
+}
+.about-member-description {
+    font-size: 17px;
+    text-align: center;
+    line-height: 20px;
+    white-space: pre-wrap;
+}

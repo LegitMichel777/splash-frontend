@@ -1,0 +1,29 @@
+#about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1070px;
+    margin: 51px auto 73px;
+}
+#team-members-container h1 {
+    margin-bottom: 46px;
+}
+#team-members-container {
+    margin-bottom: 73px;
+}
+#team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 31px;
+    row-gap: 39px;
+}
+#advisor-members-container h1 {
+    margin-bottom: 30px;
+}
+#advisor-members-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 49px;
+    row-gap: 54px;
+}
