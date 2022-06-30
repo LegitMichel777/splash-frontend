@@ -12,3 +12,10 @@
     max-width: 1140px;
     justify-content: space-between;
 }
+#resources-view-more {
+    text-decoration: none;
+    color: white;
+}
+a {
+    text-decoration: none;
+}

@@ -11,6 +11,7 @@ import cookie from 'react-cookies';
 import isLoginOK from '../../config/variable';
 import Footer from "../Footer/Footer";
 import Cards from "../Cards";
+import Link from "react-router-dom/es/Link";
 
 export default class HomePage extends Component {
 
@@ -103,11 +104,13 @@ export default class HomePage extends Component {
                             <div id={"resources-description"}>
                                 Through our resources, we empower STEM clubs and students to educate underprivileged members of their communities and ignite a passion for STEM. Our resources include STEM camps, activities, and learning resources that enable other students to learn and teach STEM.
                             </div>
-                            <div id={"resources-view-more"}>
-                                See our resources
-                                <img id={"resources-view-more-plus"} src={"/images/plus-icon.svg"}>
-                                </img>
-                            </div>
+                            <Link to="/resources">
+                                <div id={"resources-view-more"}>
+                                    See our resources
+                                    <img id={"resources-view-more-plus"} src={"/images/plus-icon.svg"}>
+                                    </img>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                     <div id={"resources-image"} style={{backgroundImage: 'url(images/resources.png)'}}>
